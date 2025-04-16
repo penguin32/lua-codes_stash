@@ -29,26 +29,26 @@
  --code:
  --
  local getInput = function(value)
-	 if type(value) ~= "number" then
-		 print("that is not a number moron")
-		 return false,0
-	 elseif value < 0 then
+	if value == nil then
+		print("why... why nil, why?")
+		return false,0
+	elseif value < 0 then
 		 print("I said, Natural Numbers! are you an idiot???")
 		 return false,0
-	 elseif math.type(value) == "float" then
+	elseif math.type(value) == "float" then
 		 print("come on man, I said natural number!")
 		 return false,0
-	 else
+	else
 		 return true, value
-	 end
- end
+	end
+ end	--This is how you should write errors exceptions in games, trust me, if you want to save time and not waste them in
+ 									--trial&errors/bruteforcing again.
  while true do
 	local height = 0
 	local checked = false
 	while not(checked) do
 		io.write("give me a natural number: ")
---		checked,height = getInput(assert(io.read("*n"),"EOF"))
-		checked,height = getInput(io.read("*n"))
+		checked,height = getInput(tonumber(io.read("*l")))
 	end
 	local eachLine = ""
 	local n = 1 --line number
